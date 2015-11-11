@@ -1,4 +1,8 @@
-
 <template name="calendar">
-  {{> fullcalendar }}
+  {{> fullcalendar
+      class="mainCalendar"
+      defaultView='month'
+      height="100%"
+      dayClick=onDayClick
+   }}
 </template>
