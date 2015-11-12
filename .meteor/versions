@@ -59,6 +59,7 @@ mongo@1.1.3
 mongo-id@1.0.1
 mrt:fullcalendar@1.6.1
 mrt:jquery-ui@1.9.2
+mrt:twilio@1.1.0
 npm-bcrypt@0.7.8_2
 npm-mongo@1.4.39_1
 observe-sequence@1.0.7

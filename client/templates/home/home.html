@@ -1,6 +1,11 @@
 <template name="home">
   <div class="jumbotron">
     <h1>mCalendar</h1>
-    <small>A fullcalendar implementation in meteor</small>
+    <small>A fullcalendar implementation in meteor.</small>
+    {{#if currentUser}}
+        <a href="/cal" class="btn btn-primary">Go To Calendar</a>
+      {{else}}
+        <p>Sign in or Sign up to start</p>
+    {{/if}}
   </div>
 </template>

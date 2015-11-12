@@ -9,5 +9,5 @@ Meteor.startup(function () {
     'removeCalEvent' : function(id) {
       return Events.remove(id);
     },
-  })
-})
+  });
+});

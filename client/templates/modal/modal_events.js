@@ -52,4 +52,21 @@ Template.editModal.events({
     // hide the modal
     Modal.hide();
   },
-})
+  'click .smsButton': function (event) {
+    var calendarEvent = {};
+    calendarEvent.id = $('#identifierField').val();
+    calendarEvent.start = $('#dateField').val();
+    calendarEvent.end = $('#dateField').val();
+    calendarEvent.title =  $('#titleField').val();
+    calendarEvent.type = $('#typeField').val();
+    calendarEvent.url = $('#fileField').val();
+    calendarEvent.manager = $('#pmField').val();
+
+    // Adding user id here
+    calendarEvent.owner = Meteor.userId();
+
+    Meteor.call('sendSMS', calendarEvent);
+
+    Modal.hide();
+  },
+});
