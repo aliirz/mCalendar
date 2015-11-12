@@ -1,4 +1,4 @@
-// if (Meteor.isServer) {
+//Twilio SMS methods
 Meteor.startup(function () {
   Meteor.methods({
     'sendSMS' : function (phoneNumber, ce) {
@@ -15,4 +15,3 @@ Meteor.startup(function () {
     }
   });
 });
-// }

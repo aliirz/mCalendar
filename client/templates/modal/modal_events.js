@@ -1,4 +1,9 @@
+// All modal button events
+
+
 Template.calModal.events({
+
+  //Save button for creation of new event
   'click .saveButton' : function (event) {
 
     // Create a Calendar Event
@@ -52,6 +57,8 @@ Template.editModal.events({
     // hide the modal
     Modal.hide();
   },
+
+  // Send button. NOTE: Twilio needs to be configured in order for this to work.
   'click .smsButton': function (event) {
     var calendarEvent = {};
     calendarEvent.id = $('#identifierField').val();

@@ -14,15 +14,19 @@ Template.fullCalendar.rendered = function(){
          Modal.show('calModal', calendarEvent);
        },
 
-       //
+       // hapens only when an event is clicked
        eventClick:function(calEvent,jsEvent,view) {
          Modal.show('editModal',calEvent);
          return false;
 
        },
+
+       // Happesnw when an event is dropped
        eventDrop:function(reqEvent){
          Meteor.call('moveEvent',reqEvent);
        },
+
+       // Fetches the events from the collection
        events:function(start,end,callback){
          var calEvents = Events.find({},{reactive:false}).fetch();
          callback(calEvents);
@@ -30,6 +34,7 @@ Template.fullCalendar.rendered = function(){
        editable:true,
        selectable:true
    }).data().fullCalendar;
+   // This part makes the calendar reactive to the changes in the collection
    Deps.autorun(function(){
      Events.find().fetch();
      if(calendar){
