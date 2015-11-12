@@ -1,5 +1,8 @@
+// This all happens when the calender template gets rendered
 Template.fullCalendar.rendered = function(){
    var calendar = $('#calendar').fullCalendar({
+
+        //Occurs when a empty day is clicked
        dayClick:function(date,allDay,jsEvent,view){
          var calendarEvent = {};
          calendarEvent.start = date;
@@ -10,14 +13,15 @@ Template.fullCalendar.rendered = function(){
          // Based on Blaze.renderViewwithData, we can pass in an object to bind with the template.
          Modal.show('calModal', calendarEvent);
        },
+
+       //
        eventClick:function(calEvent,jsEvent,view) {
          Modal.show('editModal',calEvent);
          return false;
-        //  Session.set('editing_event',calEvent._id);
-        //  $('#title').val(calEvent.title);
+
        },
        eventDrop:function(reqEvent){
-        //  Meteor.call('moveEvent',reqEvent);
+         Meteor.call('moveEvent',reqEvent);
        },
        events:function(start,end,callback){
          var calEvents = Events.find({},{reactive:false}).fetch();

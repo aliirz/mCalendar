@@ -9,5 +9,13 @@ Meteor.startup(function () {
     'removeCalEvent' : function(id) {
       return Events.remove(id);
     },
+    'moveEvent':function(reqEvent){
+      return Events.update({_id:reqEvent._id},{
+        $set:{
+          start:reqEvent.start,
+          end:reqEvent.end
+        }
+      })
+    }
   });
 });
