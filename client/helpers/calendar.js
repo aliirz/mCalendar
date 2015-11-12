@@ -1,33 +1,35 @@
-Template.calendar.helpers({
-  events: function () {
-    var fc = $('.fc');
-    return function (start, end, tz, callback) {
-      //subscribe only to specified date range
-      Meteor.subscribe('events', start.toDate(), end.toDate(), function () {
-        //trigger event rendering when collection is downloaded
-        fc.fullCalendar('refetchEvents');
-      });
+Template.fullCalendar.rendered = function(){
+   var calendar = $('#calendar').fullCalendar({
+       dayClick:function(date,allDay,jsEvent,view){
+         var calendarEvent = {};
+         calendarEvent.start = date;
+         calendarEvent.end = date;
+         calendarEvent.title = '';
+         calendarEvent.owner = Meteor.userId();
 
-      //find all, because we've already subscribed to a specific range
-      var events = Events.find().map(function (it) {
-        return {
-          title: it.date.toISOString(),
-          start: it.date,
-          allDay: true
-        };
-      });
-      callback(events);
-    };
-  },
-  onDayClick: function() {
-    return function(date, jsEvent, view) {
-      // console.log("Event clicked: " + date);
-      var calendarEvent = {};
-       calendarEvent.start = date;
-       calendarEvent.end = date;
-       calendarEvent.title = 'New Event';
-       calendarEvent.owner = Meteor.userId();
-      Modal.show('calModal', calendarEvent);
-    }
-  }
-});
+         // Based on Blaze.renderViewwithData, we can pass in an object to bind with the template.
+         Modal.show('calModal', calendarEvent);
+       },
+       eventClick:function(calEvent,jsEvent,view) {
+         Modal.show('editModal',calEvent);
+         return false;
+        //  Session.set('editing_event',calEvent._id);
+        //  $('#title').val(calEvent.title);
+       },
+       eventDrop:function(reqEvent){
+        //  Meteor.call('moveEvent',reqEvent);
+       },
+       events:function(start,end,callback){
+         var calEvents = Events.find({},{reactive:false}).fetch();
+         callback(calEvents);
+       },
+       editable:true,
+       selectable:true
+   }).data().fullCalendar;
+   Deps.autorun(function(){
+     Events.find().fetch();
+     if(calendar){
+       calendar.refetchEvents();
+     }
+   })
+ }

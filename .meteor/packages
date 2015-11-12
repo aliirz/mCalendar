@@ -22,5 +22,6 @@ twbs:bootstrap
 ian:accounts-ui-bootstrap-3
 accounts-password
 iron:router
-rzymek:fullcalendar
+#rzymek:fullcalendar
 peppelg:bootstrap-3-modal
+mrt:fullcalendar
