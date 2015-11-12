@@ -1,0 +1,48 @@
+<template name="calModal">
+    <div class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h4 class="modal-title">Add an Event</h4>
+                </div>
+
+                <div class="modal-body">
+                    <form>
+                      <div class="form-group">
+                        <input type="text" class="form-control" id="titleField" placeholder="Title">
+                      </div>
+                      <div class="form-group">
+                        <input type="text" disabled class="form-control" value="{{start}}" id="dateField" placeholder="Date">
+                      </div>
+                      <div class="form-group">
+                        <input type="text" class="form-control" id="typeField" placeholder="Event Type">
+                      </div>
+                      <div class="form-group">
+                        <input type="text" class="form-control" id="fileField" placeholder="File or Map URL">
+                      </div>
+                      <div class="form-group">
+                        <input type="text" class="form-control"  id="pmField" placeholder="Project Manager">
+                      </div>
+                      <div class="form-group">
+                        <label for="TransportType">Transport Type</label>
+                        <select id="TransportType" class="col-sm-4 form-control">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                        </select>
+                      </div>
+                    </form>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="saveButton btn btn-success">Save</button>
+                    <button type="button" class="closeButton btn btn-primary" data-dismiss="modal">Close</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</template>
