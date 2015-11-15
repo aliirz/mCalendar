@@ -14,6 +14,9 @@ Template.calModal.events({
     calendarEvent.type = $('#typeField').val();
     calendarEvent.url = $('#fileField').val();
     calendarEvent.manager = $('#pmField').val();
+    calendarEvent.transport = $('#transportType option:selected').text();
+    calendarEvent.startTime = $('#startTime').val();
+    calendarEvent.endTime = $('#endTime').val();
 
     // Adding user id here
     calendarEvent.owner = Meteor.userId();
@@ -39,6 +42,9 @@ Template.editModal.events({
     calendarEvent.type = $('#typeField').val();
     calendarEvent.url = $('#fileField').val();
     calendarEvent.manager = $('#pmField').val();
+    calendarEvent.startTime = $('#startTime').val();
+    calendarEvent.endTime = $('#endTime').val();
+    calendarEvent.transport = $('#transportField').val();
 
     // Adding user id here
     calendarEvent.owner = Meteor.userId();
@@ -68,10 +74,13 @@ Template.editModal.events({
     calendarEvent.type = $('#typeField').val();
     calendarEvent.url = $('#fileField').val();
     calendarEvent.manager = $('#pmField').val();
+    calendarEvent.startTime = $('#startTime').val();
+    calendarEvent.endTime = $('#endTime').val();
 
     // Adding user id here
     calendarEvent.owner = Meteor.userId();
 
+    //This calls the server side send SMS event.
     Meteor.call('sendSMS', calendarEvent);
 
     Modal.hide();

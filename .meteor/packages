@@ -26,3 +26,5 @@ iron:router
 peppelg:bootstrap-3-modal
 mrt:fullcalendar
 mrt:twilio
+andrasph:clockpicker
+chriswessels:glyphicons-halflings

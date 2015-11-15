@@ -16,6 +16,14 @@
                         <input type="text" disabled class="form-control" value="{{start}}" id="dateField" placeholder="Date">
                       </div>
                       <div class="form-group">
+                        <label>Start Time</label>
+                        {{> timepicker id="startTime" }}
+                      </div>
+                      <div class="form-group">
+                        <label>End Time</label>
+                        {{> timepicker id="endTime" }}
+                      </div>
+                      <div class="form-group">
                         <input type="text" class="form-control" id="typeField" placeholder="Event Type">
                       </div>
                       <div class="form-group">
@@ -26,7 +34,7 @@
                       </div>
                       <div class="form-group">
                         <label for="TransportType">Transport Type</label>
-                        <select id="TransportType" class="col-sm-4 form-control">
+                        <select id="transportType" class="col-sm-4 form-control">
                             <option>1</option>
                             <option>2</option>
                             <option>3</option>

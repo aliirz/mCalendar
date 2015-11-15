@@ -18,7 +18,6 @@ Template.fullCalendar.rendered = function(){
        eventClick:function(calEvent,jsEvent,view) {
          Modal.show('editModal',calEvent);
          return false;
-
        },
 
        // Happesnw when an event is dropped
