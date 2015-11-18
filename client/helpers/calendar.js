@@ -30,6 +30,8 @@ Template.fullCalendar.rendered = function(){
          var calEvents = Events.find({},{reactive:false}).fetch();
          callback(calEvents);
        },
+       eventColor: '#3a87ad',
+       eventBackgroundColor: '#3a87ad',
        editable:true,
        selectable:true
    }).data().fullCalendar;
